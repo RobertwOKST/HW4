@@ -1,6 +1,19 @@
+#importsregion
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
+#endregion
+
+#problemregion
+"""
+Step 1: Define the parameters for each normal distribution (sigma and mu)
+Step 2: Create ranges for the x values (will show up on graph)
+Step 3: Calculate the probability density function (pdf) for each normal distribution
+Step 4: Calculate the cumulative distribution function (cdf) for each normal distribution
+Step 5: Plot the pdf and cdf for each normal distribution
+Step 6: Format the 4 graphs
+
+"""
 
 def main():
     # Define parameters for the two normal distributions
@@ -16,20 +29,24 @@ def main():
     # Create a range of x values for the second normal distribution
     x2 = np.linspace(160, 190, 1000)
 
-    # Calculate the probability density function (pdf) for the first normal distribution
+    # Calculate the probability density function (pdf) for each normal distribution
     pdf1 = stats.norm.pdf(x1, mu1, sigma1)
-
-    cdf1 = stats.norm.cdf(x1, mu1, sigma1)
-
-    # Calculate the probability density function (pdf) for the second normal distribution
     pdf2 = stats.norm.pdf(x2, mu2, sigma2)
 
+
+    # Calculate the cumulative distribution function (cdf) for each normal distributions
+    cdf1 = stats.norm.cdf(x1, mu1, sigma1)
     cdf2 = stats.norm.cdf(x2, mu2, sigma2)
 
     # Create a figure and two subplots
     fig, ax = plt.subplots(2, 2, figsize=(12, 10))
 
+#endregion
+
+#plottingregion
+#separate the quadrants into 4 for plotting
     # Plot the PDF of the first normal distribution on the first subplot
+    #I got this format from chatgpt
     ax[0, 0].plot(x1, pdf1, label='N(0, 1)')
     ax[0, 0].set_title('PDF of N(0, 1)')
     ax[0, 0].set_xlabel('x')
@@ -60,6 +77,8 @@ def main():
     # Adjust layout and display the plot
     plt.tight_layout()
     plt.show()
+
+#endregion
 
 if __name__ == "__main__":
     main()
