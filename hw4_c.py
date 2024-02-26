@@ -17,17 +17,25 @@ Step 6: print solutions of the problems and true / false statements of
 """
 
 #setup the coefficient matrices and the constant vectors for both problems using numpy
+"""
+First array set
+"""
 A1 = np.array([[3, 1, -1],
                [1, 4, 1],
                [2, 1, 2]])
 b1 = np.array([2, 12, 10])
-
+"""
+Second array set
+"""
 A2 = np.array([[1, -10, 2, 4],
                [3, 1, 4, 12],
                [9, 2, 3, 4],
                [-1, 2, 7, 3]])
 b2 = np.array([2, 12, 21, 37])
 
+"""
+Check solution functions
+"""
 #compute solutions for both problems using scipy
 sol1 = solve(A1, b1)
 sol2 = solve(A2, b2)
