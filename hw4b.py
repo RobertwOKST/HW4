@@ -1,3 +1,5 @@
+#Anthony's code edited by Robert and Andrew
+
 #importsregion
 from scipy.optimize import fsolve
 import numpy as np
@@ -8,8 +10,10 @@ import matplotlib.pyplot as plt
 """
 Step 1: Define function 1 & function 2
 Step 2: Use 'fsolve' to find the unique roots of the two functions
-Step 3: Find the points of intersection between function 1 & function 2
-Step4: Create a graph to display points of intersection
+Step 3: Print the roots for function 1 and function 2
+Step 4: Find the points of intersection between function 1 & function 2
+Step 5: Print the points of intersection between function 1 and function 2
+Step 6: Create a graph to display points of intersection
 """
 def func1(x):  #f(x) = x - 3*cos(x)
     return x - 3 * np.cos(x)
@@ -43,6 +47,19 @@ initial_guesses = np.linspace(-10, 10, 400)  #range of initial guesses
 
 #find unique intersection points
 unique_intersections = find_unique_roots(func_intersection, initial_guesses, tolerance)
+
+# Print roots for function 1
+roots_func1 = find_unique_roots(func1, initial_guesses, tolerance)
+print("Roots for func1:")
+for root in roots_func1:
+    print(f"y = {func1(root)}") #these will be approximations
+
+# Print roots for function 2
+roots_func2 = find_unique_roots(func2, initial_guesses, tolerance)
+print("Roots for func2:")
+for root in roots_func2:
+    print(f"y = {func2(root)}") #these will be approximations
+    
 #endregion
 
 #plottingregion
@@ -51,6 +68,13 @@ unique_intersections = find_unique_roots(func_intersection, initial_guesses, tol
 x_values = np.linspace(-10, 10, 400)
 y1_values = func1(x_values)
 y2_values = func2(x_values)
+
+#print the intersection points for function 1 and function 2
+print("Intersection Points:")
+for x in unique_intersections:
+    y1 = func1(x)
+    y2 = func2(x)
+    print(f"x = {x}, y1 = {y1}, y2 = {y2}") #these wil be approximations
 
 plt.figure(figsize=(10, 6))
 plt.plot(x_values, y1_values, label="f(x) = x - 3cos(x)")
